@@ -1,0 +1,53 @@
+<h1>Timely</h1>
+<p>Press Start to start the timer</p>
+
+<div>
+    <button (click)="handleClick1()" [disabled]="isDisabled1">Start</button>
+</div>
+
+<div id="box">
+    <span>{{hr}} :</span>
+    <span> {{min}} :</span>
+    <span> {{sec}} </span>
+</div>
+
+<div>
+    <button (click)="handleClick2()" [disabled]="isDisabled2">Stop</button>
+</div>
+
+
+<div>
+    <form id= "Form">
+        <label for="fname" id="p1">Enter the name of the project*:</label><br>
+        <input [disabled]="inputDisabled" id="userInput" type="text"   name="userInput"  [(ngModel)]="inpValue" ><br>
+    </form>
+</div>
+
+<div>
+    <button type="button" id="save"  (click)="handleClick3()" [disabled]="isDisabled3">Save</button>
+</div>
+
+<div>
+
+</div>
+
+<div *ngFor="let timely of timelies">
+
+    <table class="center">
+        <tr>
+          <th>  Project name  </th>
+          <th>  Start time  </th>
+          <th>  End time  </th>
+          <th>  Duration  </th>
+        </tr>
+        <tr>
+          <td>{{ timely.prName }}</td>
+          <td>{{ timely.startTime }}</td>
+          <td>{{ timely.stopTime }}</td>
+          <td>{{ timely.duration }}</td>
+          <td><button class="deleteBtn" (click)='onDeleteTimely(timely.id)'>delete</button></td>
+        </tr>
+      </table>
+
+</div>
+
